@@ -17,7 +17,9 @@ public class StackDemoChecked {
             System.out.println("this was expected " + e.getMessage());
         }
 
-//        stack.push(clas);
+        Class<String> string = (Class<String>) new String("123").getClass();
+
+        stack.push(string);
 //        stack.push(2);
 //        stack.push(3);
 //        stack.push(4);
