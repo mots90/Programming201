@@ -14,4 +14,4 @@
 
 ### Who do I talk to? ###
 
-* Repo owner : Moheet Bhute
+* Repo owner : Moheet Bhute <moheet.bhute@gmail.com>
