@@ -1,4 +1,4 @@
-package stack.StackPrograms;
+package stack.stackPrograms;
 
 import stack.Stack;
 
