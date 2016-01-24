@@ -1,4 +1,4 @@
-package Sorting;
+package sorting;
 
 /**
  * Created by moheet-dev on 1/18/2016.

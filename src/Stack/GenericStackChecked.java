@@ -1,4 +1,4 @@
-package Stack;
+package stack;
 
 import java.lang.reflect.Array;
 
@@ -21,14 +21,14 @@ public class GenericStackChecked<T>{
             elements = (T[])Array.newInstance(value, STACK_SIZE);
         }
         if (isFull()) {
-            throw new IllegalStateException("Stack is full, cant push " + value + " !");
+            throw new IllegalStateException("stack is full, cant push " + value + " !");
         }
         elements[top++] = (T)value;
     }
 
     public T pop() {
         if (isEmpty()) {
-            throw new IllegalStateException("Stack is empty, cant pop !");
+            throw new IllegalStateException("stack is empty, cant pop !");
         }
         return (T) elements[--top];
     }

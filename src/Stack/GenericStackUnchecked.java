@@ -1,11 +1,9 @@
-package Stack;
-
-import java.lang.reflect.Array;
+package stack;
 
 /**
  * Created by moheet-dev on 1/22/2016.
  */
-public class GenericStackUnchecked<T>{
+public class GenericStackUnchecked<T> {
 
     private static final int STACK_SIZE = 10;
     private Object [] elements;
@@ -19,14 +17,14 @@ public class GenericStackUnchecked<T>{
 
     public void push(T value) {
         if (isFull()) {
-            throw new IllegalStateException("Stack is full, cant push " + value + " !");
+            throw new IllegalStateException("stack is full, cant push " + value + " !");
         }
         elements[top++] = value;
     }
 
     public T pop() {
         if (isEmpty()) {
-            throw new IllegalStateException("Stack is empty, cant pop !");
+            throw new IllegalStateException("stack is empty, cant pop !");
         }
         return (T) elements[--top];
     }
@@ -46,7 +44,9 @@ public class GenericStackUnchecked<T>{
     }
 
     public T peek() {
-        return (T)elements[top-1];
+        if (!isEmpty())
+            return (T)elements[top-1];
+        return null;
     }
 
 

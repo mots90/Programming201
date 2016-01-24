@@ -1,6 +1,6 @@
-package Stack.StackPrograms;
+package stack.StackPrograms;
 
-import Stack.GenericStackChecked;
+import stack.GenericStackChecked;
 
 /**
  * Created by moheet-dev on 1/22/2016.
@@ -9,7 +9,7 @@ public class StackDemoChecked {
 
     public static void main (String[] args) {
 
-        GenericStackChecked<String> stack = new Stack.GenericStackChecked<String>();
+        GenericStackChecked<String> stack = new stack.GenericStackChecked<String>();
 
         try {
             stack.pop();

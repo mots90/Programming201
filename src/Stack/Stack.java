@@ -1,4 +1,4 @@
-package Stack;
+package stack;
 
 /**
  * Created by moheet-dev on 1/22/2016.
@@ -17,14 +17,14 @@ public class Stack {
 
     public void push(int value) {
         if (isFull()) {
-            throw new IllegalStateException("Stack is full, cant push " + value + " !");
+            throw new IllegalStateException("stack is full, cant push " + value + " !");
         }
         elements[top++] = value;
     }
 
     public int pop() {
         if (isEmpty()) {
-            throw new IllegalStateException("Stack is empty, cant pop !");
+            throw new IllegalStateException("stack is empty, cant pop !");
         }
         return elements[--top];
     }
@@ -47,5 +47,12 @@ public class Stack {
         return elements[top-1];
     }
 
-
+    @Override
+    public String toString() {
+        StringBuffer buffer = new StringBuffer();
+        for (int i = 0; i < top; i++) {
+            buffer.append(elements[i]).append("\t");
+        }
+        return buffer.toString();
+    }
 }

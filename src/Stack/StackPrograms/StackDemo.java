@@ -1,6 +1,6 @@
-package Stack.StackPrograms;
+package stack.StackPrograms;
 
-import Stack.Stack;
+import stack.Stack;
 
 /**
  * Created by moheet-dev on 1/22/2016.
