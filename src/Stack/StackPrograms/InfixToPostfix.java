@@ -27,10 +27,16 @@ public class InfixToPostfix {
                 postfix.append(ch);
             }
             else if (isOperator(ch)) {
-                    while(!operatorStack.isEmpty() && hasPrecedenceOverStackTop(ch)) {
+                    while(!operatorStack.isEmpty() && hasPrecedenceOverStackTop(ch) && operatorStack.peek() != '(') {
                         postfix.append(operatorStack.pop());
                     }
-                    operatorStack.push(ch);
+                    if(operatorStack.isEmpty())
+                        operatorStack.push(ch);
+                    else if (ch != ')') {
+                        operatorStack.push(ch);
+                    } else {
+                        operatorStack.pop();
+                    }
             }
             else {
                 throw new RuntimeException("please fuck off, invalid infix expression");
@@ -57,13 +63,23 @@ public class InfixToPostfix {
     }
 
     private boolean isOperator(char ch) {
-        return ((ch == '+') || (ch == '-') || (ch == '*') || (ch == '/')) ? true: false;
+        return ((ch == '+') || (ch == '-') || (ch == '*') || (ch == '/') || ch == '(' || ch == ')') ? true: false;
     }
 
     private boolean hasPrecedenceOverStackTop(char ch) {
         if(operatorStack.isEmpty()) {
             return false;
         }
+
+        if(operatorStack.peek() == ')' || ch == ')') {
+            return true;
+        }
+        if (ch == '(' || operatorStack.peek() == '(') {
+            return false;
+        }
+
+
+
         char stackTop = operatorStack.peek();
         if (ch == '+' ) {
             if (stackTop == '*' || stackTop == '/') {
@@ -100,8 +116,11 @@ public class InfixToPostfix {
         InfixToPostfix converter = new InfixToPostfix();
 
         String infix = "A+B*C-D/E";
+        String infix1 = "(A+B)*C";
+        String infix2 = "A*(B+C+(D-E))";
 
-        System.out.println("Postfix expression is " + converter.convertInfixToPostfix(infix));
+
+        System.out.println("Postfix expression is " + converter.convertInfixToPostfix(infix2));
 
     }
 }
