@@ -1,3 +1,5 @@
+package general;
+
 //Implement Runnable Interface...
 class ImplementsRunnable implements Runnable {
 
@@ -5,7 +7,7 @@ class ImplementsRunnable implements Runnable {
 
     public void run() {
         counter++;
-        System.out.println("ImplementsRunnable : Counter : " + counter);
+        System.out.println("general.ImplementsRunnable : Counter : " + counter);
     }
 }
 
@@ -16,7 +18,7 @@ class ExtendsThread extends Thread {
 
     public void run() {
         counter++;
-        System.out.println("ExtendsThread : Counter : " + counter);
+        System.out.println("general.ExtendsThread : Counter : " + counter);
     }
 }
 

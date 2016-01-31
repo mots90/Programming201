@@ -27,7 +27,7 @@ public class InfixToPostfix {
                 postfix.append(ch);
             }
             else if (isOperator(ch)) {
-                    while(!operatorStack.isEmpty() && hasPrecedenceOverStackTop(ch) && operatorStack.peek() != '(') {
+                    while(!operatorStack.isEmpty() && doesStackTopHavePrecedenceOverCh(ch) && operatorStack.peek() != '(') {
                         postfix.append(operatorStack.pop());
                     }
                     if(operatorStack.isEmpty())
@@ -66,7 +66,7 @@ public class InfixToPostfix {
         return ((ch == '+') || (ch == '-') || (ch == '*') || (ch == '/') || ch == '(' || ch == ')') ? true: false;
     }
 
-    private boolean hasPrecedenceOverStackTop(char ch) {
+    private boolean doesStackTopHavePrecedenceOverCh(char ch) {
         if(operatorStack.isEmpty()) {
             return false;
         }

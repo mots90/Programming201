@@ -1,3 +1,5 @@
+package tree;
+
 /**
  * Basic tree operations
  * Created by moheet-dev on 10/18/2014.

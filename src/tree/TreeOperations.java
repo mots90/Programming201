@@ -1,3 +1,7 @@
+package tree;
+
+import tree.Tree;
+
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -10,7 +14,7 @@ public class TreeOperations {
 
         Stack<Tree> stack;
         ArrayList<Tree> queue = new ArrayList<Tree>();
-        System.out.println("Tree nodes in vertical order are");
+        System.out.println("tree.Tree nodes in vertical order are");
         queue.add(root);
         while(!queue.isEmpty()){
             Tree node = queue.remove(queue.size()-1);
@@ -31,7 +35,7 @@ public class TreeOperations {
     public static void printLevelOrder(Tree root){
         ArrayList<Tree> list = new ArrayList<Tree>();
         list.add(root);
-        System.out.println("Tree nodes in level order are");
+        System.out.println("tree.Tree nodes in level order are");
         while(list.size()!=0){
             System.out.println();
             ArrayList<Tree> newList = new ArrayList<Tree>();
@@ -56,7 +60,7 @@ public class TreeOperations {
     public static void main(String[] args){
 
         Tree tree = Tree.getSampleTree();
-        //Tree.printInOrderWithRecursion(tree);
+        //tree.Tree.printInOrderWithRecursion(tree);
         printVertically(tree);
         //printLevelOrder(tree);
     }
