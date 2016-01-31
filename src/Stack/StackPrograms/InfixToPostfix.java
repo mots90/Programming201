@@ -5,12 +5,7 @@ import stack.GenericStackUnchecked;
 /**
  * Created by moheet-dev on 1/25/2016.
  */
-public class InfixToPostfix {
-
-
-    private int charIndex = 0;
-
-    GenericStackUnchecked<Character> operatorStack;
+public class InfixToPostfix extends ExpressionConversion {
 
     InfixToPostfix() {
         operatorStack = new GenericStackUnchecked<Character>();
@@ -48,66 +43,6 @@ public class InfixToPostfix {
         }
 
         return postfix.toString();
-    }
-
-    private char getNextCharacter(String string) {
-        return (charIndex < string.length()) ? string.toCharArray()[charIndex++] : '#';
-    }
-
-    private boolean hasMoreCharacters(String string) {
-        return (charIndex < string.length() ) ? true : false;
-    }
-
-    private boolean isOperand(char ch) {
-        return ((ch >= 'A' && ch <='Z') || (ch >= 'a' && ch <='z')) ? true: false;
-    }
-
-    private boolean isOperator(char ch) {
-        return ((ch == '+') || (ch == '-') || (ch == '*') || (ch == '/') || ch == '(' || ch == ')') ? true: false;
-    }
-
-    private boolean doesStackTopHavePrecedenceOverCh(char ch) {
-        if(operatorStack.isEmpty()) {
-            return false;
-        }
-
-        if(operatorStack.peek() == ')' || ch == ')') {
-            return true;
-        }
-        if (ch == '(' || operatorStack.peek() == '(') {
-            return false;
-        }
-
-
-
-        char stackTop = operatorStack.peek();
-        if (ch == '+' ) {
-            if (stackTop == '*' || stackTop == '/') {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-        if (ch == '+' ) {
-            if (stackTop == '*' || stackTop == '/') {
-                return true;
-            }
-            else {
-                return true;
-            }
-        }
-        if (ch == '*' || ch == '/') {
-            if (stackTop == '+' || stackTop == '-') {
-                return false;
-            }
-            else {
-                return false;
-            }
-        }
-
-        return true;
-
     }
 
 
