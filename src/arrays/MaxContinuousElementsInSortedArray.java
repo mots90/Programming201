@@ -14,7 +14,7 @@ package arrays;
  */
 public class MaxContinuousElementsInSortedArray {
 
-    int[] array = {1,2,2,3,3,3,4,4,4};
+    int[] array = {1,2,2,3,3,3,3,4,4,4};
 
     /**
      * returns the number of continuous given numbers
@@ -27,60 +27,30 @@ public class MaxContinuousElementsInSortedArray {
      * @return
      *          number of continuous elements
      */
-    int countContinousElements(int start, int end, int num) {
+    int find(int start, int end, int num, boolean searchFirst) {
 
         int mid = 0;
-        while( start < end ) {
+        int result = -1;
+
+        while( start <= end ) {
 
             mid = (start + end) / 2;
 
-            if(array[mid] > num ) {
-                start = mid+1;
-            }
-            else if (array[mid] < num) {
-                end = mid-1;
-            }
-            else {
-                System.out.println(String.format("found %d at %dth location",num, mid));
-                break;
-            }
-        }
-
-        int low = array[mid-1] != array[mid] ? mid : findLow(start, mid-1, num);
-        int high = array[mid+1] != array[mid] ? mid : findHigh(mid+1, end, num);
-
-        return high-low + 1;
-    }
-
-    int findLow(int start, int end, int num) {
-
-        int result = -1;
-        while (start <= end) {
-            int mid = (start + end) / 2;
-
             if ( array[mid] == num) {
                 result = mid;
-                end = mid - 1;
-            }
-            else if ( array[mid] < num) {
-                start = mid + 1;
-            }
-        }
 
-        return result;
-    }
-
-    int findHigh(int start, int end, int num) {
-        int result = -1;
-        while (start <= end) {
-            int mid = (start + end) / 2;
-
-            if ( array[mid] == num) {
-                result = mid;
-                start = mid + 1;
+                if (searchFirst) {
+                    end = mid-1;
+                }
+                else {
+                    start = mid+1;
+                }
             }
             else if ( array[mid] > num) {
                 end = mid - 1;
+            }
+            else {
+                start = mid + 1;
             }
         }
 
@@ -89,12 +59,14 @@ public class MaxContinuousElementsInSortedArray {
 
     public static void main(String[] args) {
         MaxContinuousElementsInSortedArray counter = new MaxContinuousElementsInSortedArray();
-        int num = 3;
 
-        int start = 0;
-        int end = counter.array.length - 1;
-        System.out.println(String.format("the continuous occurrence of %d is %d",num, counter.countContinousElements(start,end,num)));
-
+        int start = counter.find(0,counter.array.length-1, 2, true);
+        if ( start == -1) {
+            System.out.println("number not present");
+        }
+        else {
+            int end = counter.find(0,counter.array.length-1, 2, false);
+            System.out.println("number present following times " + (end-start+1));
+        }
     }
-
 }
