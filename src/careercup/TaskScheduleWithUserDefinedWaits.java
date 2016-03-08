@@ -57,7 +57,8 @@ public class TaskScheduleWithUserDefinedWaits {
             nextIndices.put(currentTask,nextIndex + wait + 1);
             scheduledTasks[nextIndex] = currentTask;
             occupied.add(nextIndex);
-            presentTaskIndex++;
+            if (nextIndex == presentTaskIndex)
+                presentTaskIndex++;
 
         }
         System.out.println(" THE SCHEDULED TASKS ARE " + new String(scheduledTasks));
