@@ -30,6 +30,7 @@ public class TaskScheduleWithUserDefinedWaits {
         Set<Integer> occupied = new HashSet<Integer>();
 
 
+
         for (int i = 0; i< scheduledTasks.length; i++) {
             scheduledTasks[i] = WAIT;
         }
