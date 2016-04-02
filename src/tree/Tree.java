@@ -40,7 +40,17 @@ public class Tree {
         return right;
     }
 
+    public void setData(Integer data) {
+        this.data = data;
+    }
 
+    public void setRight(Tree right) {
+        this.right = right;
+    }
+
+    public void setLeft(Tree left) {
+        this.left = left;
+    }
 
     /**
      *
