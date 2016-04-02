@@ -18,6 +18,14 @@ public class HeightAndSize {
         return (leftHeight > righttHeight) ? leftHeight + 1 : righttHeight + 1;
     }
 
+    public int getMinHeight(Tree root) {
+        if (root == null) {
+            return 0;
+        }
+
+        return 1 + Math.min(getMinHeight(root.left), getMinHeight(root.right));
+    }
+
     public int getSize(Tree root) {
         if (root == null) {
             return 0;
@@ -33,6 +41,7 @@ public class HeightAndSize {
 
         HeightAndSize finder = new HeightAndSize();
         System.out.println("Height of the tree is " + finder.getHeight(finder.root));
+        System.out.println("Min height of the tree is " + finder.getMinHeight(finder.root));
         System.out.println("Size of the tree is " + finder.getSize(finder.root));
     }
 }

@@ -28,6 +28,20 @@ public class Tree {
         this.right=right;
     }
 
+    public Integer getData() {
+        return data;
+    }
+
+    public Tree getLeft() {
+        return left;
+    }
+
+    public Tree getRight() {
+        return right;
+    }
+
+
+
     /**
      *
      * @param root
