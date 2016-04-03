@@ -10,6 +10,3 @@
 * Programming Methodologies
 * Brain Teasers
 
-### Who do I talk to? ###
-
-* Repo owner : Moheet Bhute <moheet.bhute@gmail.com>
